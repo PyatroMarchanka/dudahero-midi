@@ -571,7 +571,7 @@ const folders = [
   { path: "./midi/schotland", label: "Schotland" },
   { path: "./midi/other", label: "Other" },
   { path: "./midi/scandinavian", label: "Scandinavian" },
-  { path: "./midi/exersices", label: "Exersices" },
+  { path: "./midi/exercises", label: "Exercises" },
 ];
 
 const initSongList = async () => {
