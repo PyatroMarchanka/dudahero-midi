@@ -4,11 +4,11 @@
   "description": "midi files",
   "main": "index.ts",
   "pre-commit": [
-    "ts-node-esm -T index.ts && git add . && git commit -m \"update songlist\" && echo \"tTEEESSSHCJ\" "
+    "npm run songlist"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "songlist": "ts-node-esm -T index.ts && git add . && git commit -m \"update songlist\" && echo \"tTEEESSSHCJ\" "
+    "songlist": "ts-node-esm -T index.ts && git add . && git commit -m \"update songlist\""
   },
   "repository": {
     "type": "git",
