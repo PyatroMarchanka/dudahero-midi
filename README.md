@@ -1,3 +1,3 @@
 # dudahero-midi
 
-MIDI files for Duda    Hero repo https://github.com/PyatroMarchanka/Dudar
+MIDI files foruda    Hero repo https://github.com/PyatroMarchanka/Dudar
