@@ -1,0 +1,32 @@
+{
+  "name": "dudahero-midi",
+  "version": "1.0.0",
+  "description": "midi files",
+  "main": "index.ts",
+  "pre-commit": [
+    "npm run songlist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "songlist": "ts-node-esm -T index.ts && git add . && git commit -m \"update songlist\" && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PyatroMarchanka/dudahero-midi.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PyatroMarchanka/dudahero-midi/issues"
+  },
+  "homepage": "https://github.com/PyatroMarchanka/dudahero-midi#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "pre-commit": "^1.2.2"
+  },
+  "dependencies": {
+    "@tonejs/midi": "^2.0.28",
+    "node-fetch": "^3.3.2"
+  },
+  "type": "module"
+}
