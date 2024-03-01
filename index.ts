@@ -527,8 +527,11 @@ const bagpipeNotesMaps = Object.values(["bd", "bnd", "bod", "ddl", "ghb"]).map(
   })
 );
 
-const findBagpipesForSong = (midi: any) => {
+const findBagpipesForSong = (midi: any, isAnthem: boolean) => {
   const songNotesFromMidi = getSongNotesWithOctaveFromMidi(midi);
+  if(isAnthem){
+    console.log('songNotesFromMidi', songNotesFromMidi)
+  }
   const filteredBagpipesForSong = bagpipeNotesMaps.filter(
     ({ bagpipeNotes }) =>
       !songNotesFromMidi.filter((note) => !bagpipeNotes.includes(note)).length
@@ -551,7 +554,11 @@ const getSongListWithBagpipeTypes = async (songs: any): Promise<any[]> => {
         const path = process.cwd();
         const buffer = fs.readFileSync(path + `/midi/${song.pathName}`);
         const midi = new Midi(buffer);
-        const bagpipesToPlay = findBagpipesForSong(midi);
+        let isAnthem = false
+        if(song.name === 'Anthem of Ukraine'){
+          isAnthem = true
+        }
+        const bagpipesToPlay = findBagpipesForSong(midi, isAnthem);
 
         return { ...song, bagpipesToPlay };
       })
