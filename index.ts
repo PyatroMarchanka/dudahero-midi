@@ -69,9 +69,16 @@ const bagpipes = {
         brickhHeight: 14.4,
         brickHeightHalf: 7.2,
         notesScale: 0.3,
-        brickLeftMargin: 44,
+        brickLeftMargin: 72,
         notesNamesLeftMargin: 32,
         noteNameColor: "#fff",
+      },
+      bg: {
+        width: 441.6,
+        heigth: 800,
+        imageScale: 0.515,
+        leftMargin: -32,
+        topMargin: 0,
       },
     },
     images: {
@@ -81,6 +88,7 @@ const bagpipes = {
       closedHoleImage: {},
       backClosedHoleImage: {},
       blowImage: {},
+      bgImage: {},
     },
     notesToLines: {
       E4: 7,
@@ -180,9 +188,16 @@ const bagpipes = {
         brickhHeight: 14.4,
         brickHeightHalf: 7.2,
         notesScale: 0.3,
-        brickLeftMargin: 44,
+        brickLeftMargin: 72,
         notesNamesLeftMargin: 32,
         noteNameColor: "#fff",
+      },
+      bg: {
+        width: 441.6,
+        heigth: 800,
+        imageScale: 0.515,
+        leftMargin: -32,
+        topMargin: 0,
       },
     },
     images: {
@@ -288,9 +303,16 @@ const bagpipes = {
         brickhHeight: 14.4,
         brickHeightHalf: 7.2,
         notesScale: 0.3,
-        brickLeftMargin: 44,
+        brickLeftMargin: 72,
         notesNamesLeftMargin: 32,
         noteNameColor: "#fff",
+      },
+      bg: {
+        width: 441.6,
+        heigth: 800,
+        imageScale: 0.515,
+        leftMargin: -32,
+        topMargin: 0,
       },
     },
     images: {
@@ -383,6 +405,13 @@ const bagpipes = {
         notesNamesLeftMargin: 4,
         noteNameColor: "#000",
       },
+      bg: {
+        width: 441.6,
+        heigth: 800,
+        imageScale: 0.515,
+        leftMargin: -32,
+        topMargin: 0,
+      },
     },
     images: {
       mainPipe: {},
@@ -391,6 +420,7 @@ const bagpipes = {
       closedHoleImage: {},
       backClosedHoleImage: {},
       blowImage: {},
+      bgImage: {},
     },
     notesToLines: {
       G4: 8,
@@ -431,39 +461,50 @@ const bagpipes = {
     },
     holesPositions: {
       closable: [
-        { yPos: 112, leftMargin: 16, diameter: 20 },
-        { yPos: 148.8, leftMargin: 40, diameter: 20 },
+        { yPos: 112, leftMargin: 20, diameter: 20 },
+        { yPos: 146.4, leftMargin: 33.6, diameter: 13.600000000000001 },
+        { yPos: 180, leftMargin: 32.800000000000004, diameter: 16 },
+        { yPos: 222.4, leftMargin: 32.800000000000004, diameter: 16 },
+        { yPos: 265.6, leftMargin: 32.800000000000004, diameter: 17.6 },
+        { yPos: 303.2, leftMargin: 32.800000000000004, diameter: 17.6 },
         {
-          yPos: 209.60000000000002,
-          leftMargin: 42.400000000000006,
-          diameter: 16,
+          yPos: 355.20000000000005,
+          leftMargin: 32.800000000000004,
+          diameter: 20,
         },
-        { yPos: 262.40000000000003, leftMargin: 40, diameter: 20 },
-        { yPos: 348.8, leftMargin: 40, diameter: 20 },
-        { yPos: 393.6, leftMargin: 42.400000000000006, diameter: 16 },
-        { yPos: 454.40000000000003, leftMargin: 40, diameter: 20 },
-        { yPos: 496, leftMargin: 40, diameter: 20 },
+        {
+          yPos: 418.40000000000003,
+          leftMargin: 32.800000000000004,
+          diameter: 20,
+        },
       ],
-      blowImage: { yPos: 72, leftMargin: 36, diameter: 26.400000000000002 },
+      blowImage: { yPos: 72, leftMargin: 28.8, diameter: 21.6 },
       linesYPositions: [
-        72, 122, 158.8, 217.60000000000002, 272.40000000000003, 358.8, 401.6,
-        464.40000000000003, 506,
+        72, 122, 153.20000000000002, 188, 230.4, 274.40000000000003, 312,
+        365.20000000000005, 428.40000000000003,
       ],
     },
     imagesProperties: {
       main_pipe: {
-        width: 127.2,
-        heigth: 415.20000000000005,
-        imageScale: 0.30635838150289013,
-        leftMargin: -30.400000000000002,
+        width: 216,
+        heigth: 640,
+        imageScale: 0.2232142857142857,
+        leftMargin: -68,
         topMargin: 0,
+      },
+      bg: {
+        width: 329.6,
+        heigth: 640,
+        imageScale: 0.515,
+        leftMargin: 60,
+        topMargin: 80,
       },
       notes: {
         lineHeight: 2,
         brickhHeight: 14.4,
         brickHeightHalf: 7.2,
         notesScale: 0.3,
-        brickLeftMargin: 44,
+        brickLeftMargin: 45,
         notesNamesLeftMargin: 4,
         noteNameColor: "#000",
       },
@@ -475,6 +516,7 @@ const bagpipes = {
       closedHoleImage: {},
       backClosedHoleImage: {},
       blowImage: {},
+      bgImage: {},
     },
     notesToLines: {
       G4: 8,
@@ -499,6 +541,104 @@ const bagpipes = {
       A5: [],
     },
   },
+  gd: {
+    name: "gaida",
+    type: "gd",
+    notesMap: {
+      D4: [0, 1, 2, 3, 4, 5, 6, 7],
+      E4: [0, 1, 2, 3, 4, 5, 6],
+      "F#4": [0, 1, 2, 3, 4, 5],
+      G4: [0, 1, 2, 3, 4, 6],
+      "G#4": [0, 2, 3, 4, 5],
+      A4: [0, 1, 2, 3, 5, 6],
+      "A#4": [0, 2, 3, 5, 6],
+      B4: [0, 1, 2, 4, 5, 6],
+      C5: [0, 2, 4, 5, 6],
+      "C#5": [0, 1, 3, 4, 5, 6],
+      D5: [0, 3, 4, 5, 6],
+      E5: [1, 2, 3, 4, 5, 6],
+    },
+    holesPositions: {
+      closable: [
+        { yPos: 112, leftMargin: 16, diameter: 20 },
+        { yPos: 148.8, leftMargin: 40, diameter: 20 },
+        {
+          yPos: 209.60000000000002,
+          leftMargin: 42.400000000000006,
+          diameter: 16,
+        },
+        { yPos: 262.40000000000003, leftMargin: 40, diameter: 20 },
+        { yPos: 348.8, leftMargin: 40, diameter: 20 },
+        { yPos: 393.6, leftMargin: 42.400000000000006, diameter: 16 },
+        { yPos: 454.40000000000003, leftMargin: 40, diameter: 20 },
+        { yPos: 496, leftMargin: 40, diameter: 20 },
+      ],
+      blowImage: { yPos: 72, leftMargin: 28.8, diameter: 21.6 },
+      linesYPositions: [
+        72, 122, 158.8, 217.60000000000002, 272.40000000000003, 358.8, 401.6,
+        464.40000000000003, 506,
+      ],
+    },
+    imagesProperties: {
+      main_pipe: {
+        width: 216,
+        heigth: 640,
+        imageScale: 0.2232142857142857,
+        leftMargin: -68,
+        topMargin: 0,
+      },
+      bg: {
+        width: 329.6,
+        heigth: 640,
+        imageScale: 0.515,
+        leftMargin: 60,
+        topMargin: 80,
+      },
+      notes: {
+        lineHeight: 2,
+        brickhHeight: 14.4,
+        brickHeightHalf: 7.2,
+        notesScale: 0.3,
+        brickLeftMargin: 45,
+        notesNamesLeftMargin: 4,
+        noteNameColor: "#000",
+      },
+    },
+    images: {
+      mainPipe: {},
+      activeHoleImage: {},
+      backActiveHoleImage: {},
+      closedHoleImage: {},
+      backClosedHoleImage: {},
+      blowImage: {},
+      bgImage: {},
+    },
+    notesToLines: {
+      G4: 8,
+      A4: 7,
+      B4: 6,
+      C5: 5,
+      D5: 4,
+      E5: 3,
+      F5: 2,
+      G5: 1,
+      A5: 0,
+    },
+    fingersMaps: {
+      D4: [0, 1, 2, 3, 4, 5, 6, 7],
+      E4: [0, 1, 2, 3, 4, 5, 6],
+      "F#4": [0, 1, 2, 3, 4, 5],
+      G4: [0, 1, 2, 3, 4, 6],
+      "G#4": [0, 2, 3, 4, 5],
+      A4: [0, 1, 2, 3, 5, 6],
+      "A#4": [0, 2, 3, 5, 6],
+      B4: [0, 1, 2, 4, 5, 6],
+      C5: [0, 2, 4, 5, 6],
+      "C#5": [0, 1, 3, 4, 5, 6],
+      D5: [0, 3, 4, 5, 6],
+      E5: [1, 2, 3, 4, 5, 6],
+    },
+  },
 };
 
 const getSongNotesWithOctaveFromMidi = (midi: any) => {
@@ -520,7 +660,7 @@ const getSongNotesWithOctaveFromMidi = (midi: any) => {
   return Object.keys(notesObject);
 };
 
-const bagpipeNotesMaps = Object.values(["bd", "bnd", "bod", "ddl", "ghb"]).map(
+const bagpipeNotesMaps = Object.values(["bd", "bnd", "bod", "ddl", "ghb", "gd"]).map(
   (bagpipeType) => ({
     bagpipeNotes: Object.keys(bagpipes[bagpipeType].notesMap),
     bagpipeType,
@@ -529,8 +669,8 @@ const bagpipeNotesMaps = Object.values(["bd", "bnd", "bod", "ddl", "ghb"]).map(
 
 const findBagpipesForSong = (midi: any, isAnthem: boolean) => {
   const songNotesFromMidi = getSongNotesWithOctaveFromMidi(midi);
-  if(isAnthem){
-    console.log('songNotesFromMidi', songNotesFromMidi)
+  if (isAnthem) {
+    console.log("songNotesFromMidi", songNotesFromMidi);
   }
   const filteredBagpipesForSong = bagpipeNotesMaps.filter(
     ({ bagpipeNotes }) =>
@@ -554,9 +694,9 @@ const getSongListWithBagpipeTypes = async (songs: any): Promise<any[]> => {
         const path = process.cwd();
         const buffer = fs.readFileSync(path + `/midi/${song.pathName}`);
         const midi = new Midi(buffer);
-        let isAnthem = false
-        if(song.name === 'Anthem of Ukraine'){
-          isAnthem = true
+        let isAnthem = false;
+        if (song.name === "Anthem of Ukraine") {
+          isAnthem = true;
         }
         const bagpipesToPlay = findBagpipesForSong(midi, isAnthem);
 
