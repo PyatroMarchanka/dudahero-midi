@@ -667,11 +667,9 @@ const bagpipeNotesMaps = Object.values(["bd", "bnd", "bod", "ddl", "ghb", "gd"])
   })
 );
 
-const findBagpipesForSong = (midi: any, isAnthem: boolean) => {
+const findBagpipesForSong = (midi: any) => {
   const songNotesFromMidi = getSongNotesWithOctaveFromMidi(midi);
-  if (isAnthem) {
-    console.log("songNotesFromMidi", songNotesFromMidi);
-  }
+  
   const filteredBagpipesForSong = bagpipeNotesMaps.filter(
     ({ bagpipeNotes }) =>
       !songNotesFromMidi.filter((note) => !bagpipeNotes.includes(note)).length
@@ -694,11 +692,8 @@ const getSongListWithBagpipeTypes = async (songs: any): Promise<any[]> => {
         const path = process.cwd();
         const buffer = fs.readFileSync(path + `/midi/${song.pathName}`);
         const midi = new Midi(buffer);
-        let isAnthem = false;
-        if (song.name === "Anthem of Ukraine") {
-          isAnthem = true;
-        }
-        const bagpipesToPlay = findBagpipesForSong(midi, isAnthem);
+      
+        const bagpipesToPlay = findBagpipesForSong(midi);
 
         return { ...song, bagpipesToPlay };
       })
@@ -716,6 +711,7 @@ const folders = [
   { path: "./midi/medieval", label: "Medieval" },
   { path: "./midi/balkan", label: "Balkan" },
   { path: "./midi/schotland", label: "Schotland" },
+  { path: "./midi/polish", label: "Polish" },
   { path: "./midi/other", label: "Other" },
   { path: "./midi/scandinavian", label: "Scandinavian" },
   { path: "./midi/exercises", label: "Exercises" },
