@@ -731,6 +731,7 @@ const initSongList = async () => {
         song.name = name.split("-bd").join("");
         song.type = folder.label.toLowerCase();
         song.pathName = `${folder.path.split("./midi/").join("")}/${file}`;
+        song.id = `${song.type}_${name.split(' ').join('-')}`
 
         songs.push(song);
       }
