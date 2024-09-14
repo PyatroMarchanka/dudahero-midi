@@ -732,6 +732,9 @@ const initSongList = async () => {
         song.type = folder.label.toLowerCase();
         song.pathName = `${folder.path.split("./midi/").join("")}/${file}`;
         song.id = `${song.type}_${name.split(' ').join('-')}`
+        song.about = '';
+        song.originalTempo = '';
+        song.transcribedBy = '';
 
         songs.push(song);
       }
