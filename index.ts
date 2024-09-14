@@ -660,16 +660,21 @@ const getSongNotesWithOctaveFromMidi = (midi: any) => {
   return Object.keys(notesObject);
 };
 
-const bagpipeNotesMaps = Object.values(["bd", "bnd", "bod", "ddl", "ghb", "gd"]).map(
-  (bagpipeType) => ({
-    bagpipeNotes: Object.keys(bagpipes[bagpipeType].notesMap),
-    bagpipeType,
-  })
-);
+const bagpipeNotesMaps = Object.values([
+  "bd",
+  "bnd",
+  "bod",
+  "ddl",
+  "ghb",
+  "gd",
+]).map((bagpipeType) => ({
+  bagpipeNotes: Object.keys(bagpipes[bagpipeType].notesMap),
+  bagpipeType,
+}));
 
 const findBagpipesForSong = (midi: any) => {
   const songNotesFromMidi = getSongNotesWithOctaveFromMidi(midi);
-  
+
   const filteredBagpipesForSong = bagpipeNotesMaps.filter(
     ({ bagpipeNotes }) =>
       !songNotesFromMidi.filter((note) => !bagpipeNotes.includes(note)).length
@@ -692,7 +697,7 @@ const getSongListWithBagpipeTypes = async (songs: any): Promise<any[]> => {
         const path = process.cwd();
         const buffer = fs.readFileSync(path + `/midi/${song.pathName}`);
         const midi = new Midi(buffer);
-      
+
         const bagpipesToPlay = findBagpipesForSong(midi);
 
         return { ...song, bagpipesToPlay };
@@ -718,6 +723,8 @@ const folders = [
 ];
 
 const initSongList = async () => {
+  const oldList = JSON.parse(fs.readFileSync("./midi/list.json", "utf8"));
+
   const songs: any[] = [];
   folders.forEach((folder) => {
     fs.readdirSync(folder.path).forEach((file: string) => {
@@ -731,10 +738,10 @@ const initSongList = async () => {
         song.name = name.split("-bd").join("");
         song.type = folder.label.toLowerCase();
         song.pathName = `${folder.path.split("./midi/").join("")}/${file}`;
-        song.id = `${song.type}_${name.split(' ').join('-')}`
-        song.about = '';
-        song.originalTempo = '';
-        song.transcribedBy = '';
+        song.id = `${song.type}_${name.split(" ").join("-")}`;
+        song.about = "";
+        song.originalTempo = "";
+        song.transcribedBy = "";
 
         songs.push(song);
       }
@@ -742,6 +749,15 @@ const initSongList = async () => {
   });
 
   const songsWithBagpipes = await getSongListWithBagpipeTypes(songs);
+  console.log("songsWithBagpipes", songsWithBagpipes.length);
+
+  const newSongs = songsWithBagpipes.filter(
+    (song: any) =>
+      oldList.find((oldSong: any) => oldSong.id === song.id) === undefined
+  );
+  console.log("newSongs", newSongs.length);
+  const resultList = oldList.concat(newSongs);
+  console.log("resultList", resultList.length);
 
   fs.writeFile(
     "./midi/list.json",
