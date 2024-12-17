@@ -741,7 +741,7 @@ const initSongList = async () => {
         song.id = `${song.type}_${name.split(" ").join("-")}`;
         song.about = "";
         song.originalTempo = "";
-        song.transcribedBy = "";
+        song.transcribedBy = "Piatro Marchanka";
 
         songs.push(song);
       }
