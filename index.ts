@@ -742,6 +742,10 @@ const initSongList = async () => {
         song.about = "";
         song.originalTempo = "";
         song.transcribedBy = "Piatro Marchanka";
+        song.stats = {
+          views: 0,
+        };
+        song.links = [];
 
         songs.push(song);
       }
