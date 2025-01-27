@@ -1,5 +1,39 @@
 import ToneJS from "@tonejs/midi";
 import fs from "fs";
+import mongoose from "mongoose";
+
+const songSchema = new mongoose.Schema({
+  labels: [String],
+  timeSignature: String,
+  name: String,
+  type: String,
+  pathName: String,
+  id: String,
+  about: String,
+  originalTempo: String,
+  transcribedBy: String,
+  stats: {
+    views: Number,
+  },
+  links: [String],
+  bagpipesToPlay: [String],
+});
+
+const Song = mongoose.model("Song", songSchema);
+
+const saveSongsToMongoDB = async (songs: any[]) => {
+  try {
+    console.log(process.env.MONGO_CONN_STRING);
+    await mongoose.connect(process.env.MONGO_CONN_STRING);
+
+    // await Song.insertMany(songs);
+    console.log("Songs have been saved to MongoDB.");
+  } catch (error) {
+    console.error("Error saving songs to MongoDB:", error);
+  } finally {
+    await mongoose.disconnect();
+  }
+};
 
 const bagpipes = {
   bd: {
@@ -759,23 +793,25 @@ const initSongList = async () => {
     (song: any) =>
       oldList.find((oldSong: any) => oldSong.id === song.id) === undefined
   );
+
+  await saveSongsToMongoDB(newSongs);
   console.log("newSongs", JSON.stringify(newSongs));
-  const resultList = oldList.concat(newSongs);
-  console.log("resultList", resultList.length);
+  // const resultList = oldList.concat(newSongs);
+  // console.log("resultList", resultList.length);
 
-  fs.writeFile(
-    "./midi/list.json",
-    JSON.stringify(songsWithBagpipes),
-    "utf8",
-    function (err: any) {
-      if (err) {
-        console.log("An error occured while writing JSON Object to File.");
-        return console.log(err);
-      }
+  // fs.writeFile(
+  //   "./midi/list.json",
+  //   JSON.stringify(songsWithBagpipes),
+  //   "utf8",
+  //   function (err: any) {
+  //     if (err) {
+  //       console.log("An error occured while writing JSON Object to File.");
+  //       return console.log(err);
+  //     }
 
-      console.log("MIDI Catalog file has been saved in list.json.");
-    }
-  );
+  //     console.log("MIDI Catalog file has been saved in list.json.");
+  //   }
+  // );
 };
 
 initSongList();
