@@ -1,6 +1,9 @@
 import ToneJS from "@tonejs/midi";
 import fs from "fs";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const songSchema = new mongoose.Schema({
   labels: [String],
@@ -23,7 +26,7 @@ const Song = mongoose.model("Song", songSchema);
 
 const saveSongsToMongoDB = async (songs: any[]) => {
   try {
-    console.log(process.env.MONGO_CONN_STRING);
+    console.log('process.env.MONGO_CONN_STRING', process.env.MONGO_CONN_STRING);
     await mongoose.connect(process.env.MONGO_CONN_STRING);
 
     // await Song.insertMany(songs);
