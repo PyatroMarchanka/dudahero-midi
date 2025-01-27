@@ -810,8 +810,7 @@ const initSongList = async () => {
   );
   console.log('newSongs', newSongs);
 
-  // await saveSongsToMongoDB(newSongs);
-  // console.log("newSongs", JSON.stringify(newSongs));
+  await saveSongsToMongoDB(newSongs);
 };
 
 initSongList();
