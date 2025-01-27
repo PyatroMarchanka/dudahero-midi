@@ -26,13 +26,14 @@ const Song = mongoose.model("Song", songSchema);
 
 const saveSongsToMongoDB = async (songs: any[]) => {
   try {
-    console.log('process.env.MONGO_CONN_STRING', process.env.MONGO_CONN_STRING);
-    console.log('songs', songs)
+    console.log("process.env.MONGO_CONN_STRING", process.env.MONGO_CONN_STRING);
+    console.log("songs", songs);
     await mongoose.connect(process.env.MONGO_CONN_STRING);
-    await Song.countDocuments({}, (err, count) => { console.log('count before', count) });
-
+    const before = await Song.countDocuments();
+    console.log('before', before);
     await Song.insertMany(songs);
-    await Song.countDocuments({}, (err, count) => { console.log('count after', count) });
+    const after = await Song.countDocuments();
+    console.log('after', after);
     console.log("Songs have been saved to MongoDB.");
   } catch (error) {
     console.error("Error saving songs to MongoDB:", error);
