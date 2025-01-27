@@ -24,17 +24,24 @@ const songSchema = new mongoose.Schema({
 
 const Song = mongoose.model("songs", songSchema);
 
-const saveSongsToMongoDB = async (songs: any[]) => {
+const getSongListFromMongoDB = async () => {
   try {
-    console.log("process.env.MONGO_CONN_STRING", process.env.MONGO_CONN_STRING);
-    console.log("songs", songs);
     const dbName = "dudahero";
     await mongoose.connect(process.env.MONGO_CONN_STRING, { dbName });
-    const before = await Song.countDocuments();
-    console.log('before', before);
+    const songs = await Song.find();
+    return songs;
+  } catch (error) {
+    console.error("Error getting songs from MongoDB:", error);
+  } finally {
+    await mongoose.disconnect();
+  }
+}
+
+const saveSongsToMongoDB = async (songs: any[]) => {
+  try {
+    const dbName = "dudahero";
+    await mongoose.connect(process.env.MONGO_CONN_STRING, { dbName });
     await Song.insertMany(songs);
-    const after = await Song.countDocuments();
-    console.log('after', after);
     console.log("Songs have been saved to MongoDB.");
   } catch (error) {
     console.error("Error saving songs to MongoDB:", error);
@@ -765,7 +772,7 @@ const folders = [
 ];
 
 const initSongList = async () => {
-  const oldList = JSON.parse(fs.readFileSync("./midi/list.json", "utf8"));
+  const oldList = await getSongListFromMongoDB();
 
   const songs: any[] = [];
   folders.forEach((folder) => {
@@ -802,24 +809,8 @@ const initSongList = async () => {
       oldList.find((oldSong: any) => oldSong.id === song.id) === undefined
   );
 
-  await saveSongsToMongoDB(newSongs);
-  console.log("newSongs", JSON.stringify(newSongs));
-  // const resultList = oldList.concat(newSongs);
-  // console.log("resultList", resultList.length);
-
-  // fs.writeFile(
-  //   "./midi/list.json",
-  //   JSON.stringify(songsWithBagpipes),
-  //   "utf8",
-  //   function (err: any) {
-  //     if (err) {
-  //       console.log("An error occured while writing JSON Object to File.");
-  //       return console.log(err);
-  //     }
-
-  //     console.log("MIDI Catalog file has been saved in list.json.");
-  //   }
-  // );
+  // await saveSongsToMongoDB(newSongs);
+  // console.log("newSongs", JSON.stringify(newSongs));
 };
 
 initSongList();
