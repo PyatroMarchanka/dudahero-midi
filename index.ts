@@ -29,7 +29,7 @@ const saveSongsToMongoDB = async (songs: any[]) => {
     console.log('process.env.MONGO_CONN_STRING', process.env.MONGO_CONN_STRING);
     await mongoose.connect(process.env.MONGO_CONN_STRING);
 
-    // await Song.insertMany(songs);
+    await Song.insertMany(songs);
     console.log("Songs have been saved to MongoDB.");
   } catch (error) {
     console.error("Error saving songs to MongoDB:", error);
