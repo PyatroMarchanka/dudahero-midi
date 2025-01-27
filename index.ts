@@ -22,7 +22,7 @@ const songSchema = new mongoose.Schema({
   bagpipesToPlay: [String],
 });
 
-const Song = mongoose.model("Song", songSchema);
+const Song = mongoose.model("songs", songSchema);
 
 const saveSongsToMongoDB = async (songs: any[]) => {
   try {
