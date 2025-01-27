@@ -27,6 +27,7 @@ const Song = mongoose.model("Song", songSchema);
 const saveSongsToMongoDB = async (songs: any[]) => {
   try {
     console.log('process.env.MONGO_CONN_STRING', process.env.MONGO_CONN_STRING);
+    console.log('songs', songs)
     await mongoose.connect(process.env.MONGO_CONN_STRING);
 
     await Song.insertMany(songs);
