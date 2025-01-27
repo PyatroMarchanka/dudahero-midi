@@ -759,7 +759,7 @@ const initSongList = async () => {
     (song: any) =>
       oldList.find((oldSong: any) => oldSong.id === song.id) === undefined
   );
-  console.log("newSongs", newSongs);
+  console.log("newSongs", JSON.stringify(newSongs));
   const resultList = oldList.concat(newSongs);
   console.log("resultList", resultList.length);
 
