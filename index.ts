@@ -29,6 +29,8 @@ const saveSongsToMongoDB = async (songs: any[]) => {
     console.log("process.env.MONGO_CONN_STRING", process.env.MONGO_CONN_STRING);
     console.log("songs", songs);
     await mongoose.connect(process.env.MONGO_CONN_STRING);
+    const dbName = "dudahero";
+    await mongoose.connect(process.env.MONGO_CONN_STRING, { dbName });
     const before = await Song.countDocuments();
     console.log('before', before);
     await Song.insertMany(songs);
