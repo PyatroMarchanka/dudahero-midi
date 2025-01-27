@@ -808,6 +808,7 @@ const initSongList = async () => {
     (song: any) =>
       oldList.find((oldSong: any) => oldSong.id === song.id) === undefined
   );
+  console.log('newSongs', newSongs.length);
 
   // await saveSongsToMongoDB(newSongs);
   // console.log("newSongs", JSON.stringify(newSongs));
