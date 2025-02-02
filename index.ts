@@ -780,10 +780,10 @@ const initSongList = async () => {
     fs.readdirSync(folder.path).forEach((file: string) => {
       if (file.includes(".mid")) {
         const song = {} as any;
-        const nameWOutExt = file.split(".mid").join("");
-        const name = nameWOutExt.split("|")[0].split("$")[0];
-        const timeSignature = nameWOutExt.split("|")[1];
-        song.labels = nameWOutExt.split("$")[1].split("-");
+        const nameWithoutExtension = file.split(".mid").join("");
+        const name = nameWithoutExtension.split("|")[0].split("$")[0];
+        const timeSignature = nameWithoutExtension.split("|")[1];
+        song.labels = nameWithoutExtension.split("$")[1].split("-");
         song.timeSignature = timeSignature?.split("-").join("/") || "4/4";
         song.name = name.split("-bd").join("");
         song.type = folder.label.toLowerCase();
