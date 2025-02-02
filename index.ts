@@ -27,6 +27,7 @@ const Song = mongoose.model("songs", songSchema);
 const getSongListFromMongoDB = async () => {
   try {
     const dbName = "dudahero";
+    console.log("process.env.MONGO_CONN_STRIN", process.env.MONGO_CONN_STRING);
     await mongoose.connect(process.env.MONGO_CONN_STRING, { dbName });
     const songs = await Song.find();
     return songs;
@@ -35,7 +36,7 @@ const getSongListFromMongoDB = async () => {
   } finally {
     await mongoose.disconnect();
   }
-}
+};
 
 const saveSongsToMongoDB = async (songs: any[]) => {
   try {
@@ -808,7 +809,7 @@ const initSongList = async () => {
     (song: any) =>
       oldList.find((oldSong: any) => oldSong.id === song.id) === undefined
   );
-  console.log('newSongs', newSongs);
+  console.log("newSongs", newSongs);
 
   await saveSongsToMongoDB(newSongs);
 };
