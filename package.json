@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "songlist": "ts-node-esm index.ts && git add . && git commit -m \"update songlist\" && git push",
+    "songlist": "npx tsx index.ts && git add . && git commit -m \"update songlist\" && git push",
     "init-songlist": "ts-node-esm -T index.ts",
     "songlist-dry": "ts-node-esm -T index.ts"
   },
@@ -24,7 +24,8 @@
   "homepage": "https://github.com/PyatroMarchanka/dudahero-midi#readme",
   "devDependencies": {
     "@types/node": "^20.11.16",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "tsx": "^4.19.3"
   },
   "dependencies": {
     "@tonejs/midi": "^2.0.28",
