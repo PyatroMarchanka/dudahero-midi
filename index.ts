@@ -24,11 +24,15 @@ const songSchema = new mongoose.Schema({
 
 const Song = mongoose.model("songs", songSchema);
 
+const connectToMongoDB = async () => {
+  const dbName = "dudahero";
+  await mongoose.connect(process.env.MONGO_CONN_STRING, { dbName });
+};
+
 const getSongListFromMongoDB = async () => {
   try {
-    const dbName = "dudahero";
     console.log("process.env.MONGO_CONN_STRIN", process.env.MONGO_CONN_STRING);
-    await mongoose.connect(process.env.MONGO_CONN_STRING, { dbName });
+    await connectToMongoDB();
     const songs = await Song.find();
     return songs;
   } catch (error) {
@@ -38,10 +42,41 @@ const getSongListFromMongoDB = async () => {
   }
 };
 
+const compareSongs = (song1: any, song2: any) => {
+  const bagpipesToPlay =
+    song1.bagpipesToPlay.length === song2.bagpipesToPlay.length &&
+    song1.bagpipesToPlay.filter(
+      (bagpipe) => !song2.bagpipesToPlay.includes(bagpipe)
+    ).length === 0;
+
+  const name = song1.name === song2.name;
+
+  const timeSignature = song1.timeSignature === song2.timeSignature;
+
+  const labels =
+    song1.labels.length === song2.labels.length &&
+    song1.labels.filter((label) => !song2.labels.includes(label)).length === 0;
+
+  return bagpipesToPlay && name && timeSignature && labels;
+};
+
+const saveUpdatedSongs = async (oldList: any[], newList: any[]) => {
+  const updatedSongs = oldList
+    .map((oldSong) => {
+      const newSong = newList.find((newSong) => newSong.id === oldSong.id);
+      if (newSong && compareSongs(oldSong, newSong)) {
+        return oldSong;
+      }
+    })
+    .filter(Boolean);
+    console.log('updatedSongs', updatedSongs.length)
+  // await connectToMongoDB();
+  // return songsWithBagpipeTypes;
+};
+
 const saveSongsToMongoDB = async (songs: any[]) => {
   try {
-    const dbName = "dudahero";
-    await mongoose.connect(process.env.MONGO_CONN_STRING, { dbName });
+    await connectToMongoDB();
     await Song.insertMany(songs);
     console.log("Songs have been saved to MongoDB.");
   } catch (error) {
@@ -853,7 +888,7 @@ const bagpipeNotesMaps = Object.values([
   "bod",
   "ddl",
   "ghb",
-  "pl"
+  "pl",
 ]).map((bagpipeType) => ({
   bagpipeNotes: Object.keys(bagpipes[bagpipeType].notesMap),
   bagpipeType,
@@ -886,7 +921,9 @@ const getSongListWithBagpipeTypes = async (songs: any): Promise<any[]> => {
         const midi = new Midi(buffer);
 
         const bagpipesToPlay = findBagpipesForSong(midi);
-        console.log(bagpipesToPlay)
+        if (bagpipesToPlay.includes("pl")) {
+          console.log(song.name);
+        }
 
         return { ...song, bagpipesToPlay };
       })
@@ -942,7 +979,7 @@ const initSongList = async () => {
 
   const songsWithBagpipes = await getSongListWithBagpipeTypes(songs);
   console.log("songsWithBagpipes", songsWithBagpipes.length);
-
+  await saveUpdatedSongs(oldList, songsWithBagpipes);
   const newSongs = songsWithBagpipes.filter(
     (song: any) =>
       oldList.find((oldSong: any) => oldSong.id === song.id) === undefined
