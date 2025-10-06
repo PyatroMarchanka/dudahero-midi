@@ -83,7 +83,7 @@ const saveUpdatedSongsBagpipeTypes = async (oldList: any[], newList: any[]) => {
 
   await connectToMongoDB();
   await updateBagpipeTypesSongsInMongoDB(updatedSongs);
-  console.log(`Updated ${updatedSongs.length} songs`);
+  console.log(`Updated ${updatedSongs.length} songs bagpipe types`);
 };
 
 const saveSongsToMongoDB = async (songs: any[]) => {
