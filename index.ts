@@ -63,6 +63,7 @@ const saveUpdatedSongs = async (oldList: any[], newList: any[]) => {
     })
     .filter(Boolean);
     console.log('updatedSongs', updatedSongs.length)
+    console.log('updatedSongs', updatedSongs[0])
   await connectToMongoDB();
 
   // await Song.updateMany({ id: { $in: updatedSongs.map((song) => song.id) } }, updatedSongs);
