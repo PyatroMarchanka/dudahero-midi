@@ -42,23 +42,14 @@ const getSongListFromMongoDB = async () => {
   }
 };
 
-const compareSongs = (song1: any, song2: any) => {
-  console.log('first', song1.bagpipesToPlay.length === song2.bagpipesToPlay.length)
+const compareBagpipeTypesSongs = (song1: any, song2: any) => {
   const bagpipesToPlayEqual =
     song1.bagpipesToPlay.length === song2.bagpipesToPlay.length &&
     song1.bagpipesToPlay.filter(
       (bagpipe) => !song2.bagpipesToPlay.includes(bagpipe)
     ).length === 0;
 
-  const nameEqual = song1.name === song2.name;
-
-  const timeSignatureEqual = song1.timeSignature === song2.timeSignature;
-
-  const labelsEqual =
-    song1.labels.length === song2.labels.length &&
-    song1.labels.filter((label) => !song2.labels.includes(label)).length === 0;
-
-  return bagpipesToPlayEqual && nameEqual && timeSignatureEqual && labelsEqual;
+  return bagpipesToPlayEqual;
 };
 
 const saveUpdatedSongs = async (oldList: any[], newList: any[]) => {
@@ -66,15 +57,15 @@ const saveUpdatedSongs = async (oldList: any[], newList: any[]) => {
     .map((oldSong) => {
       const newSong = newList.find((newSong) => newSong.id === oldSong.id);
 
-      if (newSong && !compareSongs(oldSong, newSong)) {
+      if (newSong && !compareBagpipeTypesSongs(oldSong, newSong)) {
         return newSong;
       }
     })
     .filter(Boolean);
     console.log('updatedSongs', updatedSongs.length)
-  // await connectToMongoDB();
+  await connectToMongoDB();
 
-  // await Song.updateMany(updatedSongs);
+  // await Song.updateMany({ id: { $in: updatedSongs.map((song) => song.id) } }, updatedSongs);
   console.log(`Updated ${updatedSongs.length} songs`);
   // return songsWithBagpipeTypes;
 };
@@ -954,7 +945,7 @@ const folders = [
 
 const initSongList = async () => {
   const oldList = await getSongListFromMongoDB();
-
+console.log('first', oldList[0])
   const songs: any[] = [];
   folders.forEach((folder) => {
     fs.readdirSync(folder.path).forEach((file: string) => {
