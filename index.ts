@@ -52,7 +52,25 @@ const compareBagpipeTypesSongs = (song1: any, song2: any) => {
   return bagpipesToPlayEqual;
 };
 
-const saveUpdatedSongs = async (oldList: any[], newList: any[]) => {
+const updateBagpipeTypesSongsInMongoDB = async (songs: any[]) => {
+  await connectToMongoDB();
+
+  const batchSize = 30;
+
+  for (let i = 0; i < songs.length; i += batchSize) {
+    const batch = songs.slice(i, i + batchSize);
+    await Promise.all(
+      batch.map(async (song) => {
+        await Song.updateOne(
+          { id: song.id },
+          { bagpipesToPlay: song.bagpipesToPlay }
+        );
+      })
+    );
+  }
+};
+
+const saveUpdatedSongsBagpipeTypes = async (oldList: any[], newList: any[]) => {
   const updatedSongs = oldList
     .map((oldSong) => {
       const newSong = newList.find((newSong) => newSong.id === oldSong.id);
@@ -62,13 +80,10 @@ const saveUpdatedSongs = async (oldList: any[], newList: any[]) => {
       }
     })
     .filter(Boolean);
-    console.log('updatedSongs', updatedSongs.length)
-    console.log('updatedSongs', updatedSongs[0])
-  await connectToMongoDB();
 
-  // await Song.updateMany({ id: { $in: updatedSongs.map((song) => song.id) } }, updatedSongs);
+  await connectToMongoDB();
+  await updateBagpipeTypesSongsInMongoDB(updatedSongs);
   console.log(`Updated ${updatedSongs.length} songs`);
-  // return songsWithBagpipeTypes;
 };
 
 const saveSongsToMongoDB = async (songs: any[]) => {
@@ -946,7 +961,7 @@ const folders = [
 
 const initSongList = async () => {
   const oldList = await getSongListFromMongoDB();
-console.log('first', oldList[0])
+  console.log("first", oldList[0]);
   const songs: any[] = [];
   folders.forEach((folder) => {
     fs.readdirSync(folder.path).forEach((file: string) => {
@@ -976,7 +991,7 @@ console.log('first', oldList[0])
 
   const songsWithBagpipes = await getSongListWithBagpipeTypes(songs);
   console.log("songsWithBagpipes", songsWithBagpipes.length);
-  await saveUpdatedSongs(oldList, songsWithBagpipes);
+  await saveUpdatedSongsBagpipeTypes(oldList, songsWithBagpipes);
   const newSongs = songsWithBagpipes.filter(
     (song: any) =>
       oldList.find((oldSong: any) => oldSong.id === song.id) === undefined
