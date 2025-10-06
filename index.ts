@@ -43,6 +43,7 @@ const getSongListFromMongoDB = async () => {
 };
 
 const compareSongs = (song1: any, song2: any) => {
+  console.log('first', song1.bagpipesToPlay.length === song2.bagpipesToPlay.length)
   const bagpipesToPlay =
     song1.bagpipesToPlay.length === song2.bagpipesToPlay.length &&
     song1.bagpipesToPlay.filter(
