@@ -44,34 +44,38 @@ const getSongListFromMongoDB = async () => {
 
 const compareSongs = (song1: any, song2: any) => {
   console.log('first', song1.bagpipesToPlay.length === song2.bagpipesToPlay.length)
-  const bagpipesToPlay =
+  const bagpipesToPlayEqual =
     song1.bagpipesToPlay.length === song2.bagpipesToPlay.length &&
     song1.bagpipesToPlay.filter(
       (bagpipe) => !song2.bagpipesToPlay.includes(bagpipe)
     ).length === 0;
 
-  const name = song1.name === song2.name;
+  const nameEqual = song1.name === song2.name;
 
-  const timeSignature = song1.timeSignature === song2.timeSignature;
+  const timeSignatureEqual = song1.timeSignature === song2.timeSignature;
 
-  const labels =
+  const labelsEqual =
     song1.labels.length === song2.labels.length &&
     song1.labels.filter((label) => !song2.labels.includes(label)).length === 0;
 
-  return bagpipesToPlay && name && timeSignature && labels;
+  return bagpipesToPlayEqual && nameEqual && timeSignatureEqual && labelsEqual;
 };
 
 const saveUpdatedSongs = async (oldList: any[], newList: any[]) => {
   const updatedSongs = oldList
     .map((oldSong) => {
       const newSong = newList.find((newSong) => newSong.id === oldSong.id);
-      if (newSong && compareSongs(oldSong, newSong)) {
-        return oldSong;
+
+      if (newSong && !compareSongs(oldSong, newSong)) {
+        return newSong;
       }
     })
     .filter(Boolean);
     console.log('updatedSongs', updatedSongs.length)
   // await connectToMongoDB();
+
+  // await Song.updateMany(updatedSongs);
+  console.log(`Updated ${updatedSongs.length} songs`);
   // return songsWithBagpipeTypes;
 };
 
