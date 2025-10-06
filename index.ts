@@ -70,10 +70,26 @@ const bagpipes = {
     },
     holesPositions: {
       closable: [
-        { yPos: 100, leftMargin: 4, diameter: 13.600000000000001 },
-        { yPos: 116, leftMargin: 4, diameter: 13.600000000000001 },
-        { yPos: 142.4, leftMargin: 54.400000000000006, diameter: 28 },
-        { yPos: 196, leftMargin: 54.400000000000006, diameter: 28 },
+        {
+          yPos: 100,
+          leftMargin: 4,
+          diameter: 13.600000000000001,
+        },
+        {
+          yPos: 116,
+          leftMargin: 4,
+          diameter: 13.600000000000001,
+        },
+        {
+          yPos: 142.4,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
+        {
+          yPos: 196,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
         {
           yPos: 243.20000000000002,
           leftMargin: 58.400000000000006,
@@ -84,7 +100,11 @@ const bagpipes = {
           leftMargin: 58.400000000000006,
           diameter: 13.600000000000001,
         },
-        { yPos: 292.8, leftMargin: 54.400000000000006, diameter: 28 },
+        {
+          yPos: 292.8,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
         {
           yPos: 346.40000000000003,
           leftMargin: 54.400000000000006,
@@ -186,7 +206,11 @@ const bagpipes = {
     },
     holesPositions: {
       closable: [
-        { yPos: 96, leftMargin: -4.800000000000001, diameter: 28 },
+        {
+          yPos: 96,
+          leftMargin: -4.800000000000001,
+          diameter: 28,
+        },
         {
           yPos: 116.80000000000001,
           leftMargin: 54.400000000000006,
@@ -202,7 +226,11 @@ const bagpipes = {
           leftMargin: 58.400000000000006,
           diameter: 13.600000000000001,
         },
-        { yPos: 206.4, leftMargin: 54.400000000000006, diameter: 28 },
+        {
+          yPos: 206.4,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
         {
           yPos: 249.60000000000002,
           leftMargin: 54.400000000000006,
@@ -218,8 +246,16 @@ const bagpipes = {
           leftMargin: 58.400000000000006,
           diameter: 13.600000000000001,
         },
-        { yPos: 336, leftMargin: 54.400000000000006, diameter: 28 },
-        { yPos: 380, leftMargin: 54.400000000000006, diameter: 28 },
+        {
+          yPos: 336,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
+        {
+          yPos: 380,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
       ],
       linesYPositions: [
         110, 130.8, 177.20000000000002, 220.4, 263.6, 307.6, 350, 394, 456,
@@ -288,6 +324,117 @@ const bagpipes = {
       A5: [1, 2, 3, 4, 5, 6],
     },
   },
+  pl: {
+    name: "polish",
+    type: "pl",
+    notesMap: {
+      E4: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      "G#4": [0, 1, 2, 3, 4, 5, 6, 7],
+      A4: [0, 1, 2, 3, 4, 5, 6, 8, 9],
+      B4: [0, 1, 2, 3, 4, 5, 7, 8, 9],
+      "C#5": [0, 1, 2, 3, 6, 7, 8, 9],
+      D5: [0, 1, 2, 4, 5, 6, 7, 8, 9],
+      E5: [0, 1, 3, 4, 5, 6, 7, 8, 9],
+      "F#5": [2, 3, 4, 5, 6, 7, 8, 9],
+    },
+    holesPositions: {
+      closable: [
+        {
+          yPos: 100,
+          leftMargin: 4,
+          diameter: 13.600000000000001,
+        },
+        {
+          yPos: 142.4,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
+        {
+          yPos: 196,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
+        {
+          yPos: 243.20000000000002,
+          leftMargin: 58.400000000000006,
+          diameter: 13.600000000000001,
+        },
+        {
+          yPos: 292.8,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
+        {
+          yPos: 346.40000000000003,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
+        {
+          yPos: 403.20000000000005,
+          leftMargin: 58.400000000000006,
+          diameter: 13.600000000000001,
+        },
+      ],
+      linesYPositions: [
+        106.80000000000001, 156.4, 210, 250, 306.8, 360.40000000000003, 410,
+        456,
+      ],
+    },
+    imagesProperties: {
+      main_pipe: {
+        width: 216,
+        heigth: 640,
+        imageScale: 0.2232142857142857,
+        leftMargin: -68,
+        topMargin: 0,
+      },
+      bg: {
+        width: 329.6,
+        heigth: 640,
+        imageScale: 0.515,
+        leftMargin: 60,
+        topMargin: 80,
+      },
+      notes: {
+        lineHeight: 2,
+        brickhHeight: 14.4,
+        brickHeightHalf: 7.2,
+        notesScale: 0.3,
+        brickLeftMargin: 45,
+        notesNamesLeftMargin: 4,
+        noteNameColor: "#000",
+      },
+    },
+    images: {
+      mainPipe: {},
+      activeHoleImage: {},
+      backActiveHoleImage: {},
+      closedHoleImage: {},
+      backClosedHoleImage: {},
+      blowImage: {},
+      bgImage: {},
+    },
+    notesToLines: {
+      E4: 7,
+      "G#4": 6,
+      A4: 5,
+      B4: 4,
+      "C#5": 3,
+      D5: 2,
+      E5: 1,
+      "F#5": 0,
+    },
+    fingersMaps: {
+      E4: [0, 1, 2, 3, 4, 5, 6],
+      "G#4": [0, 1, 2, 3, 4, 5],
+      A4: [0, 1, 2, 3, 4, 6],
+      B4: [0, 1, 2, 3, 5, 6],
+      "C#5": [0, 1, 2, 4, 5, 6],
+      D5: [0, 2, 3, 4, 5, 6],
+      E5: [0, 2, 3, 4, 5, 6],
+      "F#5": [1, 2, 3, 4, 5, 6],
+    },
+  },
   bod: {
     name: "belOpenDuda",
     type: "bod",
@@ -307,8 +454,16 @@ const bagpipes = {
     },
     holesPositions: {
       closable: [
-        { yPos: 136, leftMargin: -4.800000000000001, diameter: 28 },
-        { yPos: 156.8, leftMargin: 54.400000000000006, diameter: 28 },
+        {
+          yPos: 136,
+          leftMargin: -4.800000000000001,
+          diameter: 28,
+        },
+        {
+          yPos: 156.8,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
         {
           yPos: 201.60000000000002,
           leftMargin: 58.400000000000006,
@@ -319,8 +474,16 @@ const bagpipes = {
           leftMargin: 58.400000000000006,
           diameter: 13.600000000000001,
         },
-        { yPos: 246.4, leftMargin: 54.400000000000006, diameter: 28 },
-        { yPos: 289.6, leftMargin: 54.400000000000006, diameter: 28 },
+        {
+          yPos: 246.4,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
+        {
+          yPos: 289.6,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
         {
           yPos: 332,
           leftMargin: 58.400000000000006,
@@ -331,10 +494,22 @@ const bagpipes = {
           leftMargin: 58.400000000000006,
           diameter: 13.600000000000001,
         },
-        { yPos: 376, leftMargin: 54.400000000000006, diameter: 28 },
-        { yPos: 420, leftMargin: 54.400000000000006, diameter: 28 },
+        {
+          yPos: 376,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
+        {
+          yPos: 420,
+          leftMargin: 54.400000000000006,
+          diameter: 28,
+        },
       ],
-      blowImage: { yPos: 92, leftMargin: 25.6, diameter: 24 },
+      blowImage: {
+        yPos: 92,
+        leftMargin: 25.6,
+        diameter: 24,
+      },
       linesYPositions: [
         150, 170.8, 217.20000000000002, 260.40000000000003, 303.6, 347.6, 390,
         434, 456,
@@ -419,20 +594,52 @@ const bagpipes = {
     },
     holesPositions: {
       closable: [
-        { yPos: 112, leftMargin: 16, diameter: 20 },
-        { yPos: 148.8, leftMargin: 40, diameter: 20 },
+        {
+          yPos: 112,
+          leftMargin: 16,
+          diameter: 20,
+        },
+        {
+          yPos: 148.8,
+          leftMargin: 40,
+          diameter: 20,
+        },
         {
           yPos: 209.60000000000002,
           leftMargin: 42.400000000000006,
           diameter: 16,
         },
-        { yPos: 262.40000000000003, leftMargin: 40, diameter: 20 },
-        { yPos: 348.8, leftMargin: 40, diameter: 20 },
-        { yPos: 393.6, leftMargin: 42.400000000000006, diameter: 16 },
-        { yPos: 454.40000000000003, leftMargin: 40, diameter: 20 },
-        { yPos: 496, leftMargin: 40, diameter: 20 },
+        {
+          yPos: 262.40000000000003,
+          leftMargin: 40,
+          diameter: 20,
+        },
+        {
+          yPos: 348.8,
+          leftMargin: 40,
+          diameter: 20,
+        },
+        {
+          yPos: 393.6,
+          leftMargin: 42.400000000000006,
+          diameter: 16,
+        },
+        {
+          yPos: 454.40000000000003,
+          leftMargin: 40,
+          diameter: 20,
+        },
+        {
+          yPos: 496,
+          leftMargin: 40,
+          diameter: 20,
+        },
       ],
-      blowImage: { yPos: 72, leftMargin: 36, diameter: 26.400000000000002 },
+      blowImage: {
+        yPos: 72,
+        leftMargin: 36,
+        diameter: 26.400000000000002,
+      },
       linesYPositions: [
         72, 122, 158.8, 217.60000000000002, 272.40000000000003, 358.8, 401.6,
         464.40000000000003, 506,
@@ -511,12 +718,36 @@ const bagpipes = {
     },
     holesPositions: {
       closable: [
-        { yPos: 112, leftMargin: 20, diameter: 20 },
-        { yPos: 146.4, leftMargin: 33.6, diameter: 13.600000000000001 },
-        { yPos: 180, leftMargin: 32.800000000000004, diameter: 16 },
-        { yPos: 222.4, leftMargin: 32.800000000000004, diameter: 16 },
-        { yPos: 265.6, leftMargin: 32.800000000000004, diameter: 17.6 },
-        { yPos: 303.2, leftMargin: 32.800000000000004, diameter: 17.6 },
+        {
+          yPos: 112,
+          leftMargin: 20,
+          diameter: 20,
+        },
+        {
+          yPos: 146.4,
+          leftMargin: 33.6,
+          diameter: 13.600000000000001,
+        },
+        {
+          yPos: 180,
+          leftMargin: 32.800000000000004,
+          diameter: 16,
+        },
+        {
+          yPos: 222.4,
+          leftMargin: 32.800000000000004,
+          diameter: 16,
+        },
+        {
+          yPos: 265.6,
+          leftMargin: 32.800000000000004,
+          diameter: 17.6,
+        },
+        {
+          yPos: 303.2,
+          leftMargin: 32.800000000000004,
+          diameter: 17.6,
+        },
         {
           yPos: 355.20000000000005,
           leftMargin: 32.800000000000004,
@@ -528,7 +759,11 @@ const bagpipes = {
           diameter: 20,
         },
       ],
-      blowImage: { yPos: 72, leftMargin: 28.8, diameter: 21.6 },
+      blowImage: {
+        yPos: 72,
+        leftMargin: 28.8,
+        diameter: 21.6,
+      },
       linesYPositions: [
         72, 122, 153.20000000000002, 188, 230.4, 274.40000000000003, 312,
         365.20000000000005, 428.40000000000003,
@@ -591,104 +826,6 @@ const bagpipes = {
       A5: [],
     },
   },
-  gd: {
-    name: "gaida",
-    type: "gd",
-    notesMap: {
-      D4: [0, 1, 2, 3, 4, 5, 6, 7],
-      E4: [0, 1, 2, 3, 4, 5, 6],
-      "F#4": [0, 1, 2, 3, 4, 5],
-      G4: [0, 1, 2, 3, 4, 6],
-      "G#4": [0, 2, 3, 4, 5],
-      A4: [0, 1, 2, 3, 5, 6],
-      "A#4": [0, 2, 3, 5, 6],
-      B4: [0, 1, 2, 4, 5, 6],
-      C5: [0, 2, 4, 5, 6],
-      "C#5": [0, 1, 3, 4, 5, 6],
-      D5: [0, 3, 4, 5, 6],
-      E5: [1, 2, 3, 4, 5, 6],
-    },
-    holesPositions: {
-      closable: [
-        { yPos: 112, leftMargin: 16, diameter: 20 },
-        { yPos: 148.8, leftMargin: 40, diameter: 20 },
-        {
-          yPos: 209.60000000000002,
-          leftMargin: 42.400000000000006,
-          diameter: 16,
-        },
-        { yPos: 262.40000000000003, leftMargin: 40, diameter: 20 },
-        { yPos: 348.8, leftMargin: 40, diameter: 20 },
-        { yPos: 393.6, leftMargin: 42.400000000000006, diameter: 16 },
-        { yPos: 454.40000000000003, leftMargin: 40, diameter: 20 },
-        { yPos: 496, leftMargin: 40, diameter: 20 },
-      ],
-      blowImage: { yPos: 72, leftMargin: 28.8, diameter: 21.6 },
-      linesYPositions: [
-        72, 122, 158.8, 217.60000000000002, 272.40000000000003, 358.8, 401.6,
-        464.40000000000003, 506,
-      ],
-    },
-    imagesProperties: {
-      main_pipe: {
-        width: 216,
-        heigth: 640,
-        imageScale: 0.2232142857142857,
-        leftMargin: -68,
-        topMargin: 0,
-      },
-      bg: {
-        width: 329.6,
-        heigth: 640,
-        imageScale: 0.515,
-        leftMargin: 60,
-        topMargin: 80,
-      },
-      notes: {
-        lineHeight: 2,
-        brickhHeight: 14.4,
-        brickHeightHalf: 7.2,
-        notesScale: 0.3,
-        brickLeftMargin: 45,
-        notesNamesLeftMargin: 4,
-        noteNameColor: "#000",
-      },
-    },
-    images: {
-      mainPipe: {},
-      activeHoleImage: {},
-      backActiveHoleImage: {},
-      closedHoleImage: {},
-      backClosedHoleImage: {},
-      blowImage: {},
-      bgImage: {},
-    },
-    notesToLines: {
-      G4: 8,
-      A4: 7,
-      B4: 6,
-      C5: 5,
-      D5: 4,
-      E5: 3,
-      F5: 2,
-      G5: 1,
-      A5: 0,
-    },
-    fingersMaps: {
-      D4: [0, 1, 2, 3, 4, 5, 6, 7],
-      E4: [0, 1, 2, 3, 4, 5, 6],
-      "F#4": [0, 1, 2, 3, 4, 5],
-      G4: [0, 1, 2, 3, 4, 6],
-      "G#4": [0, 2, 3, 4, 5],
-      A4: [0, 1, 2, 3, 5, 6],
-      "A#4": [0, 2, 3, 5, 6],
-      B4: [0, 1, 2, 4, 5, 6],
-      C5: [0, 2, 4, 5, 6],
-      "C#5": [0, 1, 3, 4, 5, 6],
-      D5: [0, 3, 4, 5, 6],
-      E5: [1, 2, 3, 4, 5, 6],
-    },
-  },
 };
 
 const getSongNotesWithOctaveFromMidi = (midi: any) => {
@@ -716,7 +853,7 @@ const bagpipeNotesMaps = Object.values([
   "bod",
   "ddl",
   "ghb",
-  "gd",
+  "pl"
 ]).map((bagpipeType) => ({
   bagpipeNotes: Object.keys(bagpipes[bagpipeType].notesMap),
   bagpipeType,
