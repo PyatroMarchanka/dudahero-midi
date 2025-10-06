@@ -886,6 +886,7 @@ const getSongListWithBagpipeTypes = async (songs: any): Promise<any[]> => {
         const midi = new Midi(buffer);
 
         const bagpipesToPlay = findBagpipesForSong(midi);
+        console.log(bagpipesToPlay)
 
         return { ...song, bagpipesToPlay };
       })
