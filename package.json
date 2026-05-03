@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "midi files",
   "main": "index.ts",
-  "pre-commit": [
-    "npm run songlist"
-  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "songlist": "npx tsx index.ts && git add . && git commit -m \"update songlist\" && git push",
@@ -24,7 +21,6 @@
   "homepage": "https://github.com/PyatroMarchanka/dudahero-midi#readme",
   "devDependencies": {
     "@types/node": "^20.11.16",
-    "pre-commit": "^1.2.2",
     "tsx": "^4.19.3"
   },
   "dependencies": {
